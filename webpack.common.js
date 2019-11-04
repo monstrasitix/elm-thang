@@ -4,7 +4,7 @@ const path = require('path');
 
 // Plugins
 const HtmlWebpack = require('html-webpack-plugin');
-
+const WorkboxWebpack = require('workbox-webpack-plugin');
 
 const root = path.resolve.bind(undefined, __dirname);
 
@@ -47,7 +47,11 @@ const common = {
         new HtmlWebpack({
             filename: 'index.html',
             template: './src/index.html',
-        })
+        }),
+        new WorkboxWebpack.InjectManifest({
+            swDest: root('./dist/service-worker.js'),
+            swSrc: root('./src/service-worker.js'),
+        }),
     ],
     resolve: {
         extensions: [

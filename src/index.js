@@ -7,6 +7,17 @@ import './js/main';
 import { Elm } from './elm/Main';
 
 
+
+if ('serviceWorker' in navigator) {
+    document.addEventListener('load', () => (
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(console.log)
+            .catch(console.error)
+    ));
+}
+
+
+
 const target = document.getElementById('root');
 
 
