@@ -16,10 +16,11 @@ $media-map: (
 
 
 $color-map: (
-    'theme': (
-        'primary': blue,
-        'secondary': red,
-    ),
+	'none': transparent,
+	'theme': (
+		'secondary': #47B89D,
+		'primary': #B84762,
+	),
     'base': (
         'white': $color-base-white-value,
         'gray': $color-base-gray-value,

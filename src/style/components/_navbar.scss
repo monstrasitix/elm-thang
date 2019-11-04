@@ -38,6 +38,7 @@ $navbar-link-color: color('base' 'white');
     &-logo {
         height: 50px;
         object-fit: cover;
+        filter: brightness(200);
     }
 
     &-column {

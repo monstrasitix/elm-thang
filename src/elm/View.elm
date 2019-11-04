@@ -19,41 +19,56 @@ navbarLink =
         ]
 
 
+navbarLogoColumn : Html.Html Msg
+navbarLogoColumn =
+    Html.div [ Attribute.class "navbar-column" ]
+        [ Html.div [ Attribute.class "navbar-item" ]
+            [ Html.a [ Attribute.href "#", Attribute.class "navbar-link" ]
+                [ Html.img
+                    [ Attribute.src "../assets/images/logo.png"
+                    , Attribute.class "navbar-logo"
+                    ]
+                    []
+                ]
+            ]
+        ]
+
+
+navbarMenuColumn : Html.Html Msg
+navbarMenuColumn =
+    Html.div [ Attribute.class "navbar-column navbar-column--desktop" ]
+        [ Html.div [ Attribute.class "navbar-item" ]
+            [ Html.ul [ Attribute.class "navbar-list" ]
+                [ navbarLink
+                , navbarLink
+                , navbarLink
+                ]
+            ]
+        ]
+
+
+navbarToggleColumn : Html.Html Msg
+navbarToggleColumn =
+    Html.div [ Attribute.class "navbar-column navbar-column--mobile" ]
+        [ Html.div [ Attribute.class "navbar-item" ]
+            [ Html.button
+                [ Attribute.href "#"
+                , Attribute.type_ "button"
+                , Attribute.class "navbar-button"
+                ]
+                [ Html.i [ Attribute.class "fa fa-bars" ] []
+                ]
+            ]
+        ]
+
+
 navbar : Html.Html Msg
 navbar =
     Html.div [ Attribute.class "navbar" ]
         [ Html.div [ Attribute.class "navbar-container" ]
-            [ Html.div [ Attribute.class "navbar-column" ]
-                [ Html.div [ Attribute.class "navbar-item" ]
-                    [ Html.a [ Attribute.href "#", Attribute.class "navbar-link" ]
-                        [ Html.img
-                            [ Attribute.src "../assets/images/logo.png"
-                            , Attribute.class "navbar-logo"
-                            ]
-                            []
-                        ]
-                    ]
-                ]
-            , Html.div [ Attribute.class "navbar-column navbar-column--desktop" ]
-                [ Html.div [ Attribute.class "navbar-item" ]
-                    [ Html.ul [ Attribute.class "navbar-list" ]
-                        [ navbarLink
-                        , navbarLink
-                        , navbarLink
-                        ]
-                    ]
-                ]
-            , Html.div [ Attribute.class "navbar-column navbar-column--mobile" ]
-                [ Html.div [ Attribute.class "navbar-item" ]
-                    [ Html.button
-                        [ Attribute.href "#"
-                        , Attribute.type_ "button"
-                        , Attribute.class "navbar-button"
-                        ]
-                        [ Html.i [ Attribute.class "fa fa-bars" ] []
-                        ]
-                    ]
-                ]
+            [ navbarLogoColumn
+            , navbarMenuColumn
+            , navbarToggleColumn
             ]
         ]
 
