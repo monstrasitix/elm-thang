@@ -1,13 +1,12 @@
+$navbar-background-color: color('theme' 'primary');
+$navbar-link-color: color('base' 'white');
+
+
 .navbar {
-    background-color: silver;
+    background-color: $navbar-background-color;
 
     &-container {
-        max-width: 900px;
-        width: 90%;
-        margin: {
-            right: auto;
-            left: auto;
-        };
+        @extend %container-main;
 
         display: flex;
         align-items: center;
@@ -15,27 +14,23 @@
     }
 
     &-list {
-        list-style-type: none;
-        padding-left: 0;
-        margin: {
-            top: 0;
-            bottom: 0;
-        };
+        @extend %list-plain;
         display: flex;
     }
 
     &-item {
-        padding: 1.5em 2em;
+        padding: 1em 2em;
     }
 
     &-link {
-        color: #fff;
-        text-decoration: none;
+        @extend %link;
+        color: $navbar-link-color;
     }
 
     &-button {
-        color: #fff;
+        @extend %button;
         border: 0;
+        color: $navbar-link-color;
         background-color: transparent;
     }
 
