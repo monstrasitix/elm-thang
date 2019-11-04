@@ -1,0 +1,58 @@
+.navbar {
+    background-color: silver;
+
+    &-container {
+        max-width: 900px;
+        width: 90%;
+        margin: {
+            right: auto;
+            left: auto;
+        };
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin: {
+            top: 0;
+            bottom: 0;
+        };
+        display: flex;
+    }
+
+    &-item {
+        padding: 1.5em 2em;
+    }
+
+    &-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &-button {
+        color: #fff;
+        border: 0;
+        background-color: transparent;
+    }
+
+
+    &-logo {
+        height: 50px;
+        object-fit: cover;
+    }
+
+    &-column {
+        &--mobile { display: block }
+        &--desktop { display: none }
+
+        @include media('up' 'tablet') {
+            &--desktop { display: block }
+            &--mobile { display: none }
+        }
+    }
+}
+
