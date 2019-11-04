@@ -1,0 +1,47 @@
+$media-map: (
+	'print': 'only print',
+	'up': (
+		'mobile': 'only screen and (min-width: 576px)',
+		'tablet': 'only screen and (min-width: 768px)',
+		'desktop': 'only screen and (min-width: 992px)',
+		'wide': 'only screen and (min-width: 1200px)',
+	),
+	'down': (
+		'mobile': 'only screen and (max-width: 575px)',
+		'tablet': 'only screen and (max-width: 767px)',
+		'desktop': 'only screen and (max-width: 991px)',
+		'wide': 'only screen and (max-width: 1199px)',
+	),
+);
+
+
+$color-map: (
+    'theme': (
+        'primary': blue,
+        'secondary': red,
+    ),
+    'base': (
+        'white': $color-base-white-value,
+        'gray': $color-base-gray-value,
+        'black': $color-base-black-value,
+    ),
+);
+
+
+$font-size-map: (
+	'base': 16px,
+);
+
+
+$font-family-map: (
+	'base': (sans-serif),
+	'theme': (
+		'primary': ('Montserrat', sans-serif),
+		'secondary': ('Roboto', sans-serif),
+	),
+);
+
+
+$font-height-map: (
+	'base': 1.4,
+);

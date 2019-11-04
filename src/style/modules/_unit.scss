@@ -1,0 +1,6 @@
+$unit-fraction-base: 100% !default;
+
+
+@function unit-fraction($fraction, $base: $unit-fraction-base) {
+    @return $base * $fraction;
+}
