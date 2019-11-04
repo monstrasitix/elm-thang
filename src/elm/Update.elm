@@ -2,6 +2,7 @@ module Update exposing (update)
 
 import Browser
 import Browser.Navigation as Navigation
+import Routing
 import Type
 import Url
 
@@ -37,4 +38,4 @@ onUrlRequest urlRequest key =
 
 onUrlChange : Url.Url -> Type.Model -> Type.Model
 onUrlChange url model =
-    { model | url = url }
+    { model | route = Routing.parseUrl url }

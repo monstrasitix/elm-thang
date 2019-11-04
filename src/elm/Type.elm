@@ -2,6 +2,7 @@ module Type exposing (Flags, Model, Msg(..))
 
 import Browser
 import Browser.Navigation as Navigation
+import Routing
 import Url
 
 
@@ -28,5 +29,5 @@ type alias Flags =
 
 type alias Model =
     { key : Navigation.Key
-    , url : Url.Url
+    , route : Routing.Route
     }

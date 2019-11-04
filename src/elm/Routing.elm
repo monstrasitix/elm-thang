@@ -4,16 +4,28 @@ import Url
 import Url.Parser as Parser
 
 
+
+-- Main Routing
+
+
 type Route
-    = NotFoundRoute
-    | HomeRoute
+    = NotFound
+    | Home
+
+
+
+-- Route Matching
 
 
 matchers : Parser.Parser (Route -> a) a
 matchers =
     Parser.oneOf
-        [ Parser.map HomeRoute Parser.top
+        [ Parser.map Home Parser.top
         ]
+
+
+
+-- Route Parser
 
 
 parseUrl : Url.Url -> Route
@@ -23,14 +35,18 @@ parseUrl url =
             route
 
         Nothing ->
-            NotFoundRoute
+            NotFound
+
+
+
+-- Path Creator
 
 
 pathFor : Route -> String
 pathFor route =
     case route of
-        HomeRoute ->
+        Home ->
             "/"
 
-        NotFoundRoute ->
+        NotFound ->
             "/not-found"

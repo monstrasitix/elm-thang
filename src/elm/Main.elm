@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Navigation
+import Routing
 import Subscriptions exposing (subscriptions)
 import Type exposing (Flags, Model, Msg)
 import Update exposing (update)
@@ -15,7 +16,7 @@ import View exposing (view)
 
 init : Flags -> Url.Url -> Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Type.Model key url
+    ( Type.Model key (Routing.parseUrl url)
     , Cmd.none
     )
 

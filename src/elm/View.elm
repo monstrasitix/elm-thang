@@ -2,6 +2,8 @@ module View exposing (view)
 
 import Browser exposing (Document)
 import Html
+import Html.Attributes as Attribute
+import Routing
 import Type exposing (Model, Msg)
 
 
@@ -10,9 +12,20 @@ import Type exposing (Model, Msg)
 
 
 view : Model -> Document Msg
-view _ =
+view model =
     { title = "Homepage"
     , body =
-        [ Html.text "Hello Elm"
+        [ Html.nav []
+            [ Html.a [ Attribute.href "/" ] [ Html.text "Home" ]
+            , Html.a [ Attribute.href "/random" ] [ Html.text "Other" ]
+            ]
+        , Html.div []
+            [ case model.route of
+                Routing.Home ->
+                    Html.text "Home"
+
+                Routing.NotFound ->
+                    Html.text "Not found"
+            ]
         ]
     }
