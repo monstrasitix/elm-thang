@@ -14,6 +14,14 @@ workbox.routing.registerRoute(
 
 
 workbox.routing.registerRoute(
+    /\.(?:woff|woff2|ttf|otf)$/,
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'font-cache',
+    }),
+);
+
+
+workbox.routing.registerRoute(
     /\.(?:png|gif|jpg|svg)$/,
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'images-cache',
