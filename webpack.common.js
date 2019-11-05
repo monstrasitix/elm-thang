@@ -5,6 +5,8 @@ const path = require('path');
 // Plugins
 const HtmlWebpack = require('html-webpack-plugin');
 const WorkboxWebpack = require('workbox-webpack-plugin');
+const CleanWebpack = require('clean-webpack-plugin');
+
 
 const root = path.resolve.bind(undefined, __dirname);
 
@@ -22,6 +24,10 @@ const common = {
     target: 'web',
     entry: {
         app: root('./src/index.js'),
+    },
+    output: {
+        filename: '[name].js',
+        path: root('./dist'),
     },
     module: {
         rules: [
@@ -44,13 +50,14 @@ const common = {
         ],
     },
     plugins: [
+        new CleanWebpack.CleanWebpackPlugin(),
         new HtmlWebpack({
             filename: 'index.html',
             template: './src/index.html',
         }),
         new WorkboxWebpack.InjectManifest({
-            swDest: root('./dist/service-worker.js'),
-            swSrc: root('./src/service-worker.js'),
+            swDest: 'service-worker.js',
+            swSrc: './src/service-worker.js',
         }),
     ],
     resolve: {
