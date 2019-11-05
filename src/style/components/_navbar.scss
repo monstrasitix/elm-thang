@@ -27,6 +27,11 @@ $navbar-link-color: color('base' 'white');
 
     &-item {
         padding: 1em 1.75em;
+        transition: padding .1s ease;
+
+        @include media('up' 'tablet') {
+            padding: 1.75em;
+        }
     }
 
     &-link {

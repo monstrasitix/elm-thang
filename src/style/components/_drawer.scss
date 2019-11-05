@@ -31,8 +31,20 @@ $drawer-width: 300px;
 
 .drawer {
     background-color: color('theme' 'secondary');
+
+    @include media('up' 'tablet') {
+    }
 }
 
 .drawer--open + .drawer-push {
     transform: translateX($drawer-width);
 }
+
+
+.drawer,
+.drawer--open + .drawer-push {
+    @include media('up' 'tablet') {
+        transform: translateX(0);
+    }
+}
+
