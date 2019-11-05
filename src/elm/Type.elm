@@ -1,4 +1,4 @@
-module Type exposing (Flags, Model, Msg(..))
+module Type exposing (Flags, Model, Msg(..), initial)
 
 import Browser
 import Browser.Navigation as Navigation
@@ -13,6 +13,7 @@ import Url
 type Msg
     = OnUrlRequest Browser.UrlRequest
     | OnUrlChange Url.Url
+    | NavbarToggled
 
 
 
@@ -30,4 +31,13 @@ type alias Flags =
 type alias Model =
     { key : Navigation.Key
     , route : Routing.Route
+    , navbarToggle : Bool
+    }
+
+
+initial : Navigation.Key -> Routing.Route -> Model
+initial key route =
+    { key = key
+    , route = route
+    , navbarToggle = False
     }

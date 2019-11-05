@@ -1,0 +1,38 @@
+$drawer-width: 300px;
+
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    max-width: $drawer-width;
+    z-index: 10;
+    padding: 2em;
+
+    &--open {
+        transform: translateX($drawer-width);
+    }
+
+    &-button {
+        @extend %button;
+        border: 0;
+        color: color('base' 'white');
+        background-color: transparent;
+    }
+
+    &,
+    &-push {
+        transition: transform .25s ease;
+    }
+}
+
+
+.drawer {
+    background-color: color('theme' 'secondary');
+}
+
+.drawer--open + .drawer-push {
+    transform: translateX($drawer-width);
+}

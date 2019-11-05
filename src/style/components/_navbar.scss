@@ -5,6 +5,13 @@ $navbar-link-color: color('base' 'white');
 .navbar {
     background-color: $navbar-background-color;
 
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
     &-container {
         @extend %container-main;
 
@@ -19,7 +26,7 @@ $navbar-link-color: color('base' 'white');
     }
 
     &-item {
-        padding: 1em 2em;
+        padding: 1em 1.75em;
     }
 
     &-link {

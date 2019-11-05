@@ -24,6 +24,11 @@ update msg model =
             , Cmd.none
             )
 
+        Type.NavbarToggled ->
+            ( { model | navbarToggle = not model.navbarToggle }
+            , Cmd.none
+            )
+
 
 onUrlRequest : Browser.UrlRequest -> Navigation.Key -> Cmd Type.Msg
 onUrlRequest urlRequest key =

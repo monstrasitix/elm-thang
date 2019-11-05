@@ -3,6 +3,7 @@ module View exposing (view)
 import Browser exposing (Document)
 import Html
 import Html.Attributes as Attribute
+import Html.Events as Event
 import Routing
 import Type exposing (Model, Msg)
 
@@ -55,6 +56,7 @@ navbarToggleColumn =
                 [ Attribute.href "#"
                 , Attribute.type_ "button"
                 , Attribute.class "navbar-button"
+                , Event.onClick Type.NavbarToggled
                 ]
                 [ Html.i [ Attribute.class "fa fa-bars" ] []
                 ]
@@ -64,7 +66,7 @@ navbarToggleColumn =
 
 navbar : Html.Html Msg
 navbar =
-    Html.div [ Attribute.class "navbar" ]
+    Html.div [ Attribute.class "navbar navbar--fixed" ]
         [ Html.div [ Attribute.class "navbar-container" ]
             [ navbarLogoColumn
             , navbarMenuColumn
@@ -73,10 +75,39 @@ navbar =
         ]
 
 
+header : Html.Html Msg
+header =
+    Html.div [ Attribute.class "header" ]
+        [ Html.h1 []
+            [ Html.text "Header" ]
+        ]
+
+
+drawer : Bool -> Html.Html Msg
+drawer isOpen =
+    Html.aside
+        [ Attribute.class "drawer"
+        , Attribute.classList [ ( "drawer--open", isOpen ) ]
+        ]
+        [ Html.button
+            [ Attribute.href "#"
+            , Attribute.type_ "button"
+            , Attribute.class "drawer-button"
+            , Event.onClick Type.NavbarToggled
+            ]
+            [ Html.i [ Attribute.class "fa fa-times" ] []
+            ]
+        ]
+
+
 view : Model -> Document Msg
 view model =
     { title = "Homepage"
     , body =
-        [ navbar
+        [ drawer model.navbarToggle
+        , Html.div [ Attribute.class "drawer-push" ]
+            [ navbar
+            , header
+            ]
         ]
     }

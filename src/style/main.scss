@@ -7,5 +7,12 @@
 
 
 
+.header {
+    background-color: color('theme' 'primary');
+    color: color('base' 'white');
+    min-height: 100vh;
 
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -16,7 +16,7 @@ import View exposing (view)
 
 init : Flags -> Url.Url -> Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Type.Model key (Routing.parseUrl url)
+    ( Type.initial key (Routing.parseUrl url)
     , Cmd.none
     )
 
